@@ -3,17 +3,38 @@
 {% block head_css %}
   <link rel="stylesheet" href="{% static 'templates/css/login.css' %}">
 {% endblock %}
+
 {% block title_block %}
     Welcome, Doctor
 {% endblock %}
+
 {% block body_block %}
-    <h1>Login to BB Inc. Reminder System</h1>
-    <form id="login_form" method="post" action="{% url 'login' %}">
-    {% csrf_token %}
-    Username: <input type="text" name="username" value="" size="50" class="text"/>
-    <br />
-    Password: <input type="password" name="password" value="" size="50" class="text" />
-    <br />
-    <input type="submit" value="Submit" style="background-color: darkcyan; color:whitesmoke; font-size:20px" />
-    </form>
+<div id="login">
+  <div class="login-card">
+
+    <div class="card-title">
+      <h1>Log in to Bad Boys Inc</h1>
+    </div>
+
+    <div class="content">
+      <form method="POST" action="{% url 'login %}'" id="login_form">
+
+        <input id="username" type="text" name="username" title="email" placeholder="Email" required autofocus>
+        <input id="password" type="password" name="password" title="password" placeholder="Password" required>
+
+        <div class="level options">
+          <div class="checkbox level-left">
+            <input type="checkbox" id="checkbox" class="regular-checkbox">
+            <label for="checkbox"></label>
+            <span>Remember me</span>
+          </div>
+
+          <a class="btn btn-link level-right" href="#">Forgot Password?</a>
+        </div>
+
+        <button type="submit" value="submit" class="btn btn-primary">Login</button>
+      </form>
+    </div>
+  </div>
+</div>
 {% endblock %}
