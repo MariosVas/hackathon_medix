@@ -6,7 +6,9 @@ from django.http import HttpResponseRedirect, HttpResponse
 from django.contrib.auth.decorators import login_required
 from System.forms import UserForm, UserProfileForm
 from System.main import main_search
+from System.models import Patient, UserProfile
 from django.contrib.auth import authenticate, login, logout
+from django.views.decorators.csrf import csrf_exempt
 
 from datetime import datetime
 import json
@@ -111,16 +113,19 @@ def user_login(request):
         return render(request, 'login.html', {})
 
 
-def perform_search(request, params):
+@login_required
+@csrf_exempt
+def perform_search(request, params=""):
     return HttpResponse(main_search(params))
 
 
 @login_required
 def search(request):
-    return HttpResponse(main_search())
+    return render(request, 'search.html', {})
 
 
 @login_required
-def patient(request):
-
-    return render(request, 'patient.html', )
+def patient(request, tel):
+    patient = Patient.objects.get(telephone=tel)
+    out = {"name": patient.name, "tel": patient.telephone, "notes": patient.notes, "meds": patient.medication}
+    return render(request, 'patient.html', out)

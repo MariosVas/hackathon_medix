@@ -1,17 +1,22 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
+{%  block imports %}
+{% load staticfiles %}
+{%  endblock %}
+
+{%  block content %}
     <meta charset="UTF-8">
     <title>Bad Boy Inc. Automated Prescription Reminder</title>
     <h3> Find Patient:</h3>
     <input type="text" id="searchBar" value="Patient Name" onclick="empty(this)">
     <button id="btnSearch" class="btn btn-info" onClick="populate()">Search</button>
+    <button id="btnNew" class="btn btn-primary" onClick="new_patient()">New Patient</button>
     <div id="searchResults"></div>
-</head>
-<body>
+    <div id="new"></div>
+{%  endblock  %}
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+<script language="JavaScript" type="text/javascript" >
 
-</body>
-<script>
 document.getElementById("searchBar").addEventListener("keyup", function(event) {
     // Number 13 is the "Enter" key on the keyboard
     if (event.keyCode == 13) {
@@ -36,13 +41,18 @@ function populate(){
         dataType:"json",
         success:function(patients){
             for( var person in patients){
-                $('#searchResults').append(person);
+                $('#searchResults').append();
             }
         },
         error: function (XMLHttpRequest, textStatus, errorThrown) {
             alert("Request: " + XMLHttpRequest.toString() + "\nStatus: " + textStatus + "\nError: " + errorThrown);
         },
     });
+}
+// '<button class="actionBtn btn btn-success" onClick=post_fun(this.firstChild.nodeValue)>' + i + " " + data[i][j] + '</button>'
+function new_patient(){
+    $('#new').innerHTML = ""; //clean
+    $('#new').append('<input type="text" class="new_in" id="name_in" value="Name"> <input type="text" class="new_in" id="tel_in" value="Telephone"> <input type="text" class="new_in" id="notes_in" value="Notes">' );
 }
 </script>
 </html>

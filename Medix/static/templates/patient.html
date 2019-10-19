@@ -2,7 +2,20 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <h1>Patient</h1>
+
+    <h3>{{ out.name }}</h3>
+    <p>Telephone number: {{ out.tel }}</p>
+    <p>Notes:</p>
+    <input type="text" value="{{ out.notes }}"/>
+    <div>
+        {% for item in medication %}
+            <li><input type="text" value="{{ item.med }}"/>
+                <input type="text" value="{{ item.times }}"/>
+                <input type="text" value="{{ item.msg }}"/>
+            </li>
+        {% endfor %}
+    </div>
 </head>
 <body>
 
