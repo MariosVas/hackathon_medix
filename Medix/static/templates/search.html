@@ -4,9 +4,45 @@
     <meta charset="UTF-8">
     <title>Bad Boy Inc. Automated Prescription Reminder</title>
     <h3> Find Patient:</h3>
-    <input type="text" value="Patient Name">
+    <input type="text" id="searchBar" value="Patient Name" onclick="empty(this)">
+    <button id="btnSearch" class="btn btn-info" onClick="populate()">Search</button>
+    <div id="searchResults"></div>
 </head>
 <body>
 
 </body>
+<script>
+document.getElementById("searchBar").addEventListener("keyup", function(event) {
+    // Number 13 is the "Enter" key on the keyboard
+    if (event.keyCode == 13) {
+    // Cancel the default action, if needed
+    event.preventDefault();
+    // Trigger the button element with a click
+    document.getElementById("btnSearch").click();
+    }
+});
+
+
+function empty(id){
+    id.value = "";
+}
+
+function populate(){
+    let params = document.getElementById("searchBar").value;
+    $.ajax({
+        type:"POST",
+        url:"/perform_search",
+        data: params,
+        dataType:"json",
+        success:function(patients){
+            for( var person in patients){
+                $('#searchResults').append(person);
+            }
+        },
+        error: function (XMLHttpRequest, textStatus, errorThrown) {
+            alert("Request: " + XMLHttpRequest.toString() + "\nStatus: " + textStatus + "\nError: " + errorThrown);
+        },
+    });
+}
+</script>
 </html>

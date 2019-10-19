@@ -20,8 +20,9 @@ from System import views
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    url(r'^$', views.login, name='login'),
-    url(r'^login', views.login, name=''),
-    url('r^search', views.search, name='search'),
-    url(r'^patient/(?P<user>[\w\-]+)', views.patient, name='patient'),
+    url(r'^$', views.user_login, name='login'),
+    url(r'^login/', views.user_login, name=''),
+    url(r'^register/$', views.register, name='register'),
+    url(r'^search/', views.search, name='search'),
+    url(r'^perform_search/', views.perform_search, name='perform_search'),
 ]
