@@ -34,14 +34,17 @@ function empty(id){
 
 function populate(){
     let params = document.getElementById("searchBar").value;
+    document.getElementById("searchResults").innerHTML = "";
+    alert(params);
     $.ajax({
         type:"POST",
         url:"/perform_search",
-        data: params,
+        data: {"params":params},
         dataType:"json",
         success:function(patients){
-            for( var person in patients){
-                $('#searchResults').append();
+            for( var tel in patients){
+                $('#searchResults').append('<p>' + patients[tel]["name"] + '</p> <p>'+ tel +'</p> <p>'
+                    + patients[tel]["notes"] +'</p> <button id='+ tel +'onclick="select('+ tel +')">Select</button>');
             }
         },
         error: function (XMLHttpRequest, textStatus, errorThrown) {
@@ -50,9 +53,12 @@ function populate(){
     });
 }
 // '<button class="actionBtn btn btn-success" onClick=post_fun(this.firstChild.nodeValue)>' + i + " " + data[i][j] + '</button>'
+
 function new_patient(){
-    $('#new').innerHTML = ""; //clean
-    $('#new').append('<input type="text" class="new_in" id="name_in" value="Name"> <input type="text" class="new_in" id="tel_in" value="Telephone"> <input type="text" class="new_in" id="notes_in" value="Notes">' );
+    window.location.href = "/add_patient";
+}
+function select(tel){
+    window.location.href = "/patient/" + tel ;
 }
 </script>
 </html>

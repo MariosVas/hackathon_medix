@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <h1>Add Patient</h1>
+    <form id="patient_form" method="post" action="{% url 'add_patient' %}"
+            enctype="multipart/form-data">
+
+            {% csrf_token %}
+            <!-- Display each form -->
+{#            {{ patient_form.as_p }}#}
+            Name:      <input type="text" name="name" value="" size="50"> </br> </br>
+            Telephone: <input type="text" name="telephone" value="" size="50"> </br></br>
+            Notes:     <input type="text" name="notes" value="" size="50"> </br></br>
+
+            <!-- Provide a button to click to submit the form. -->
+            <input type="submit" name="submit" id="submitbtn" value="Add" />
+    </form>
+    <div id="info"></div>
+</head>
+<body>
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+<script language="JavaScript" type="text/javascript" >
+$("#submitbtn").click(function(){
+    let f = document.getElementById("patient_form");
+    send = f.elements[2].value
+    $.ajax({
+        url:"/connect_patient",
+        type:"POST",
+        datatype: "json",
+        data: {tel : send},
+        success:function(response){
+            document.getElementById("info").append('<p>Form submitted successfully, patient added to your list</p>')
+        },
+        error: function (XMLHttpRequest, textStatus, errorThrown) {
+            alert("Request: " + XMLHttpRequest.toString() + "\nStatus: " + textStatus + "\nError: " + errorThrown);
+        },
+    })
+});
+</script>
+</body>
+</html>

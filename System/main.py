@@ -1,22 +1,19 @@
 import pymongo
+from System.models import Patient
+import json
 
 
-def main_search(params=""):
-    client = pymongo.MongoClient(
-        "mongodb+srv://marios:qwertyuiop@cluster0-kondl.gcp.mongodb.net/medix?retryWrites=true&w=majority")
+def get_patients(params):
+    to_search = params.decode("utf-8").split("=")[1]
+    to_search = "".join(to_search)
+    if to_search == "":
+        data = Patient.objects.all()
+    else:
+        data = Patient.objects.filter(name__contains=to_search)
+    output = {}
+    for patient in data:
+        output[patient.telephone] = {"name": patient.name, "meds": patient.medication, "notes":patient.notes}
 
-    db = client.get_database("medix")
-    patients = db.mdx
-    print("got patients", patients)
-    data = patients.find_one()
-    print("counted documents")
-    print(data)
-    print("done\n\n")
-    # if params == "":
-    #     data = patients.find()
-    # else:
-    #     data = patients.find({'name': params})
-
-    return data
+    return json.dumps(output)
 
 

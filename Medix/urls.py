@@ -25,5 +25,7 @@ urlpatterns = [
     url(r'^register/$', views.register, name='register'),
     url(r'^search/', views.search, name='search'),
     url(r'^perform_search', views.perform_search, name='perform_search'),
-    url(r'^patient/(?P<patient_tel>[\w\-]+)', views.patient, name="patient")
+    url(r'^patient/(?P<patient_tel>[\w\-]+)', views.patient, name="patient"),
+    url(r'^add_patient', views.add_patient, name="add_patient"),
+    url(r'^connect_patient', views.connect_patient, name="connect_patient"),
 ]

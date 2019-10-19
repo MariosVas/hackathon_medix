@@ -4,8 +4,8 @@ from django.contrib.auth.models import User
 from django.db.models import Count
 from django.http import HttpResponseRedirect, HttpResponse
 from django.contrib.auth.decorators import login_required
-from System.forms import UserForm, UserProfileForm
-from System.main import main_search
+from System.forms import UserForm, UserProfileForm, PatientForm
+from System.main import get_patients
 from System.models import Patient, UserProfile
 from django.contrib.auth import authenticate, login, logout
 from django.views.decorators.csrf import csrf_exempt
@@ -15,6 +15,7 @@ import json
 from django.views.decorators.csrf import csrf_exempt
 from django.shortcuts import redirect
 import os
+import json
 
 
 def register(request):
@@ -115,8 +116,12 @@ def user_login(request):
 
 @login_required
 @csrf_exempt
-def perform_search(request, params=""):
-    return HttpResponse(main_search(params))
+def perform_search(request):
+    # params is just the string to compare the names with
+    if request.is_ajax():
+        if request.method == 'POST':
+            return HttpResponse(get_patients(request.body))
+    return HttpResponse(get_patients(""))
 
 
 @login_required
@@ -129,3 +134,17 @@ def patient(request, tel):
     patient = Patient.objects.get(telephone=tel)
     out = {"name": patient.name, "tel": patient.telephone, "notes": patient.notes, "meds": patient.medication}
     return render(request, 'patient.html', out)
+
+
+@login_required
+def add_patient(request):
+    user = UserProfile.objects.filter(user__username=request.user)
+    form = PatientForm
+    return render(request, "add_patient.html", {"patient_form":form, "user":user})
+
+@csrf_exempt
+@login_required
+def connect_patient(request, tel):
+    print("CONNECT PATIENT RUN")
+    user = UserProfile.objects.get(user__username=request.user);
+    user.patients.append(tel)
