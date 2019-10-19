@@ -2,16 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="ed27130a-2ffa-4e9b-b04f-5b25b3685dca" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/Medix/population.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Medix/static/templates/search.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Medix/static/templates/patient.html" beforeDir="false" afterPath="$PROJECT_DIR$/Medix/static/templates/patient.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Medix/static/templates/search.html" beforeDir="false" afterPath="$PROJECT_DIR$/Medix/static/templates/search.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Medix/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/Medix/urls.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/System/forms.py" beforeDir="false" afterPath="$PROJECT_DIR$/System/forms.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/System/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/System/main.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/System/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/System/models.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/System/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/System/views.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Medix/population.py" beforeDir="false" afterPath="$PROJECT_DIR$/Medix/population.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -59,7 +50,11 @@
       </file>
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/Medix/population.py">
-          <provider selected="true" editor-type-id="text-editor" />
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="510">
+              <caret line="30" column="4" lean-forward="true" selection-start-line="30" selection-start-column="4" selection-end-line="30" selection-end-column="4" />
+            </state>
+          </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
@@ -170,11 +165,10 @@
       </list>
     </option>
   </component>
-  <component name="ProjectFrameBounds" extendedState="1">
-    <option name="x" value="-8" />
-    <option name="y" value="-8" />
-    <option name="width" value="976" />
-    <option name="height" value="1056" />
+  <component name="ProjectFrameBounds" extendedState="6">
+    <option name="x" value="953" />
+    <option name="width" value="974" />
+    <option name="height" value="1047" />
   </component>
   <component name="ProjectView">
     <navigator proportions="" version="1">
@@ -281,18 +275,18 @@
       <option name="presentableId" value="Default" />
       <updated>1571433189130</updated>
       <workItem from="1571433192356" duration="2985000" />
-      <workItem from="1571476686852" duration="32266000" />
+      <workItem from="1571476686852" duration="33641000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="35251000" />
+    <option name="totallyTimeSpent" value="36626000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="976" height="1056" extended-state="1" />
+    <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.27292576" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.13326226" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
@@ -424,16 +418,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/System/models.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="272">
-          <caret line="16" column="44" lean-forward="true" selection-start-line="16" selection-start-column="44" selection-end-line="16" selection-end-column="44" />
-          <folding>
-            <element signature="e#0#28#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/Medix/static/templates/search.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="238">
@@ -465,8 +449,22 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/System/models.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="272">
+          <caret line="16" column="44" lean-forward="true" selection-start-line="16" selection-start-column="44" selection-end-line="16" selection-end-column="44" />
+          <folding>
+            <element signature="e#0#28#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/Medix/population.py">
-      <provider selected="true" editor-type-id="text-editor" />
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="510">
+          <caret line="30" column="4" lean-forward="true" selection-start-line="30" selection-start-column="4" selection-end-line="30" selection-end-column="4" />
+        </state>
+      </provider>
     </entry>
   </component>
 </project>
