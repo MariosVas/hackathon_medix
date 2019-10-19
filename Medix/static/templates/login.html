@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+{% load staticfiles %}
+{% block head_css %}
+  <link rel="stylesheet" href="{% static 'templates/css/login.css' %}">
+{% endblock %}
+{% block title_block %}
+    Welcome, Doctor
+{% endblock %}
+{% block body_block %}
+    <h1>Login to BB Inc. Reminder System</h1>
+    <form id="login_form" method="post" action="{% url 'login' %}">
+    {% csrf_token %}
+    Username: <input type="text" name="username" value="" size="50" class="text"/>
+    <br />
+    Password: <input type="password" name="password" value="" size="50" class="text" />
+    <br />
+    <input type="submit" value="Submit" style="background-color: darkcyan; color:whitesmoke; font-size:20px" />
+    </form>
+{% endblock %}
