@@ -37,16 +37,9 @@ function save() {
             buffer["time"] = this.value;
         }else{
             buffer["message"] = this.value;
-            {#data[buff_name] = buffer;#}
             data += buff_name+'__'+buffer["time"] + '__' + buffer["message"] + "_0_";
         }
-{#        var text = '{ "employees" : [' +#}
-{#'{ "firstName":"John" , "lastName":"Doe" },' +#}
-{#'{ "firstName":"Anna" , "lastName":"Smith" },' +#}
-{#'{ "firstName":"Peter" , "lastName":"Jones" } ]}';#}
     });
-    {#data = JSON.parse(data);#}
-    alert(data)
     $.ajax({
         type:"POST",
         url:"/save_patient",

@@ -29,4 +29,5 @@ urlpatterns = [
     url(r'^add_patient', views.add_patient, name="add_patient"),
     url(r'^connect_patient', views.connect_patient, name="connect_patient"),
     url(r'^save_patient', views.save_patient, name="save_patient"),
+    url(r'^schedule', views.schedule, name="schedule"),
 ]

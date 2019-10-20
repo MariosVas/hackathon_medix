@@ -5,7 +5,7 @@ from django.db.models import Count
 from django.http import HttpResponseRedirect, HttpResponse
 from django.contrib.auth.decorators import login_required
 from System.forms import UserForm, UserProfileForm, PatientForm
-from System.main import get_patients
+from System.main import get_patients, scheduler
 from System.models import Patient, UserProfile
 from django.contrib.auth import authenticate, login, logout
 from django.views.decorators.csrf import csrf_exempt
@@ -145,7 +145,7 @@ def patient(request, patient_tel):
 def add_patient(request):
     user = UserProfile.objects.filter(user__username=request.user)
     form = PatientForm
-    return render(request, "add_patient.html", {"patient_form":form, "user":user})
+    return render(request, "add_patient.html", {"patient_form": form, "user": user})
 
 
 @csrf_exempt
@@ -178,3 +178,7 @@ def save_patient(request):
     # {"Medicine": "Panadol", "Time": "1700", "Message": "Take a Panadol (green bottle)"}
     response = {"name":"name"}
     return HttpResponse(json.dumps(response))
+
+def schedule(request):
+    scheduler()
+    return "DONE BB's"

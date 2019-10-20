@@ -11,6 +11,7 @@
     <input type="text" id="searchBar" value="Patient Name" onclick="empty(this)">
     <button id="btnSearch" class="btn btn-info" onClick="populate()">Search</button>
     <button id="btnNew" class="btn btn-primary" onClick="new_patient()">New Patient</button>
+    <button id="btnSchedule" class="btn btn-danger" onClick="schedule()">Update messaging schedule</button>
     <div id="searchResults"></div>
     <div id="new"></div>
 {%  endblock  %}
@@ -27,6 +28,19 @@ document.getElementById("searchBar").addEventListener("keyup", function(event) {
     }
 });
 
+function schedule(){
+    $.ajax({
+        type:"POST",
+        url:"/schedule",
+        data:"",
+        dataType: "text",
+        success:function(){
+        },
+        error: function (XMLHttpRequest, textStatus, errorThrown) {
+            alert("Request: " + XMLHttpRequest.toString() + "\nStatus: " + textStatus + "\nError: " + errorThrown);
+        },
+    })
+}
 
 function empty(id){
     id.value = "";
