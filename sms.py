@@ -1,6 +1,5 @@
 import os
 from twilio.rest import Client
-import arrow
 
 # Uses credentials from the TWILIO_ACCOUNT_SID and TWILIO_AUTH_TOKEN environment variables
 account_sid = os.getenv('TWILIO_ACCOUNT_SID')
