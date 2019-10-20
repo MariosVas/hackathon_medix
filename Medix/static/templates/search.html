@@ -35,7 +35,6 @@ function empty(id){
 function populate(){
     let params = document.getElementById("searchBar").value;
     document.getElementById("searchResults").innerHTML = "";
-    alert(params);
     $.ajax({
         type:"POST",
         url:"/perform_search",
@@ -44,7 +43,7 @@ function populate(){
         success:function(patients){
             for( var tel in patients){
                 $('#searchResults').append('<p>' + patients[tel]["name"] + '</p> <p>'+ tel +'</p> <p>'
-                    + patients[tel]["notes"] +'</p> <button id='+ tel +'onclick="select('+ tel +')">Select</button>');
+                    + patients[tel]["notes"] +'</p> <button id='+ tel +' onclick="select('+ tel +')">Select</button>');
             }
         },
         error: function (XMLHttpRequest, textStatus, errorThrown) {
@@ -57,8 +56,10 @@ function populate(){
 function new_patient(){
     window.location.href = "/add_patient";
 }
+
 function select(tel){
-    window.location.href = "/patient/" + tel ;
+
+    window.location.href = "/patient/"+tel;
 }
 </script>
 </html>

@@ -28,4 +28,5 @@ urlpatterns = [
     url(r'^patient/(?P<patient_tel>[\w\-]+)', views.patient, name="patient"),
     url(r'^add_patient', views.add_patient, name="add_patient"),
     url(r'^connect_patient', views.connect_patient, name="connect_patient"),
+    url(r'^save_patient', views.save_patient, name="save_patient"),
 ]

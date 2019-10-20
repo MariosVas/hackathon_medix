@@ -130,10 +130,15 @@ def search(request):
 
 
 @login_required
-def patient(request, tel):
-    patient = Patient.objects.get(telephone=tel)
+def patient(request, patient_tel):
+    tel = patient_tel
+    patient = Patient.objects.get(telephone__contains=tel)
+    # out = {}
+    # out[patient.telephone] = {"name": patient.name, "meds": patient.medication, "notes": patient.notes}
+
     out = {"name": patient.name, "tel": patient.telephone, "notes": patient.notes, "meds": patient.medication}
-    return render(request, 'patient.html', out)
+    print(out)
+    return render(request, 'patient.html', {"out": out})
 
 
 @login_required
@@ -142,9 +147,34 @@ def add_patient(request):
     form = PatientForm
     return render(request, "add_patient.html", {"patient_form":form, "user":user})
 
+
 @csrf_exempt
 @login_required
 def connect_patient(request, tel):
     print("CONNECT PATIENT RUN")
     user = UserProfile.objects.get(user__username=request.user);
     user.patients.append(tel)
+
+
+@csrf_exempt
+@login_required
+def save_patient(request):
+    if request.is_ajax():
+        if request.method == 'POST':
+            a = request.body
+    data = a.decode("utf-8").split("_0_")
+    print(data)
+    da = []
+    for i in data:
+        da.append(i.split("__"))
+    tel = da[0]
+    print(tel[0])
+    da = da[1:-1]
+    patient = Patient.objects.get(telephone__contains=tel[0])
+    patient.medication = []
+    for i in da:
+        patient.medication.append({"Medicine": i[0], "Time": i[1], "Message": i[2]})
+    patient.save()
+    # {"Medicine": "Panadol", "Time": "1700", "Message": "Take a Panadol (green bottle)"}
+    response = {"name":"name"}
+    return HttpResponse(json.dumps(response))

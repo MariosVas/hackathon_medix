@@ -12,7 +12,7 @@ def get_patients(params):
         data = Patient.objects.filter(name__contains=to_search)
     output = {}
     for patient in data:
-        output[patient.telephone] = {"name": patient.name, "meds": patient.medication, "notes":patient.notes}
+        output[patient.telephone] = {"name": patient.name, "notes": patient.notes}
 
     return json.dumps(output)
 
