@@ -12,10 +12,9 @@ client = Client(account_sid, auth_token)
 def send_sms_reminder(patient_name, patient_message, patient_tel):
     """Send a reminder to a phone using Twilio SMS"""
 
-    body = 'Hi {0}. {1} at {2}.'.format(
+    body = 'Hi {0}. {1}.'.format(
             patient_name,
             patient_message,
-            patient_tel.format('h:mm a')
         )
 
     client.messages.create(

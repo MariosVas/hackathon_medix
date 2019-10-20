@@ -30,17 +30,13 @@ def get_patients(params):
 
 
 def scheduler():
-    schedule.clear("medication_daily")
+    #schedule.clear("medication_daily")
     for patient in Patient.objects.all():
         for med in patient.medication:
-            schedule_sms(med["Time"][:2] + ":" + med["Time"][2:], patient.name, med["Message"], patient.telephone)
-
-
-def schedule_sms(med_time, patient_name, patient_message, patient_tel):
-    # time format hh:mm
-    schedule.every().day.at(med_time).do(send_sms_reminder, patient_tel=patient_tel,
-                                         patient_name=patient_name, patient_message=patient_message).tag("medication_daily")
-    print("Scheduling done")
+            schedule.every().day.at(med["Time"][:2] + ":" + med["Time"][2:]).do(send_sms_reminder,
+                                                 patient_name=patient.name, patient_message=med['Message'],
+                                                 patient_tel=patient.telephone).tag("medication_daily")
+            print("Job scheduled at {}.".format(med["Time"][:2] + ":" + med["Time"][2:]))
     while True:
         schedule.run_pending()
-        time.sleep(1)
+        time.sleep(60)
