@@ -9,7 +9,6 @@
       <change beforePath="$PROJECT_DIR$/Medix/static/templates/search.html" beforeDir="false" afterPath="$PROJECT_DIR$/Medix/static/templates/search.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Medix/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/Medix/urls.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/System/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/System/main.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/System/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/System/views.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -106,7 +105,7 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/population.py">
+        <entry file="file://$PROJECT_DIR$/Medix/settings.py">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="340">
               <caret line="20" column="75" selection-start-line="20" selection-end-line="21" />
@@ -198,19 +197,6 @@
             <path>
               <item name="hackathon_medix" type="b2602c69:ProjectViewProjectNode" />
               <item name="hackathon_medix" type="462c0819:PsiDirectoryNode" />
-              <item name="Medix" type="462c0819:PsiDirectoryNode" />
-              <item name="static" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="hackathon_medix" type="b2602c69:ProjectViewProjectNode" />
-              <item name="hackathon_medix" type="462c0819:PsiDirectoryNode" />
-              <item name="Medix" type="462c0819:PsiDirectoryNode" />
-              <item name="static" type="462c0819:PsiDirectoryNode" />
-              <item name="templates" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="hackathon_medix" type="b2602c69:ProjectViewProjectNode" />
-              <item name="hackathon_medix" type="462c0819:PsiDirectoryNode" />
               <item name="System" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
@@ -296,7 +282,7 @@
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.13432837" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.09188464" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
@@ -364,13 +350,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/../Medix/venv/Lib/site-packages/django/core/handlers/exception.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-238">
-          <caret line="57" column="89" lean-forward="true" selection-start-line="57" selection-start-column="89" selection-end-line="57" selection-end-column="89" />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/../Medix/venv/Lib/site-packages/django/core/handlers/exception.py" />
     <entry file="file://$PROJECT_DIR$/Medix/static/templates/search.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="238">
@@ -380,8 +360,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/Medix/settings.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="918">
-          <caret line="54" selection-start-line="54" selection-end-line="54" />
+        <state relative-caret-position="20">
+          <caret line="54" lean-forward="true" selection-start-line="54" selection-end-line="54" />
         </state>
       </provider>
     </entry>
@@ -479,10 +459,23 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Medix/static/templates/search.html">
+    <entry file="file://$PROJECT_DIR$/sms.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="170">
-          <caret line="35" column="25" selection-start-line="35" selection-start-column="25" selection-end-line="35" selection-end-column="25" />
+        <state relative-caret-position="280">
+          <caret line="14" selection-start-line="14" selection-end-line="14" />
+          <folding>
+            <element signature="e#0#9#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/System/main.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="420">
+          <caret line="21" lean-forward="true" selection-start-line="21" selection-end-line="21" />
+          <folding>
+            <element signature="e#0#14#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>

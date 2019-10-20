@@ -3,8 +3,16 @@ from System.models import Patient
 import json
 import schedule
 import time
+import os
+from twilio.rest import Client
 from sms import send_sms_reminder
 
+
+# Uses credentials from the TWILIO_ACCOUNT_SID and TWILIO_AUTH_TOKEN environment variables
+account_sid = os.getenv('TWILIO_ACCOUNT_SID')
+auth_token = os.getenv('TWILIO_AUTH_TOKEN')
+# create client object
+client = Client(account_sid, auth_token)
 
 
 def get_patients(params):
@@ -36,5 +44,3 @@ def schedule_sms(med_time, patient_name, patient_med, patient_tel):
     while True:
         schedule.run_pending()
         time.sleep(1)
-
-
