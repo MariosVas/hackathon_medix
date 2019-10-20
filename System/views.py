@@ -179,6 +179,18 @@ def save_patient(request):
     response = {"name":"name"}
     return HttpResponse(json.dumps(response))
 
+@csrf_exempt
+def patient_addition(request):
+    if request.is_ajax():
+        if request.method == 'POST':
+            a = request.body
+    data = a.decode("utf-8").split("__")
+    print(data)
+    Patient.objects.get_or_create(name=data[0], telephone=data[1], notes=data[2])
+    patient = Patient.objects.get(telephone=data[1])
+    patient.save()
+    response = {"name": "name"}
+    return HttpResponse(json.dumps(response))
 
 @csrf_exempt
 def schedule(request):

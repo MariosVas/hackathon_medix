@@ -3,40 +3,59 @@
 <head>
     <meta charset="UTF-8">
     <h1>Add Patient</h1>
-    <form id="patient_form" method="post" action="{% url 'add_patient' %}"
-            enctype="multipart/form-data">
+{#    <form id="patient_form" method="post" action="{% url 'add_patient' %}"#}
+{#            enctype="multipart/form-data">#}
 
-            {% csrf_token %}
+{#            {% csrf_token %}#}
             <!-- Display each form -->
 {#            {{ patient_form.as_p }}#}
-            Name:      <input type="text" name="name" value="" size="50"> </br> </br>
-            Telephone: <input type="text" name="telephone" value="" size="50"> </br></br>
-            Notes:     <input type="text" name="notes" value="" size="50"> </br></br>
+            Name:      <input id ="name" type="text" name="name" value="" size="50"> </br> </br>
+            Telephone: <input id="tel" type="text" name="telephone" value="" size="50"> </br></br>
+            Notes:     <input id="notes" type="text" name="notes" value="" size="50"> </br></br>
 
             <!-- Provide a button to click to submit the form. -->
-            <input type="submit" name="submit" id="submitbtn" value="Add" />
-    </form>
+{#            <input type="submit" name="submit" id="submitbtn" value="Add" />#}
+            <input type="button" id="submitbtn" onclick="submit_patient()" value="Add Patient"/>
+{#    </form>#}
     <div id="info"></div>
 </head>
 <body>
 <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
 <script language="JavaScript" type="text/javascript" >
-$("#submitbtn").click(function(){
-    let f = document.getElementById("patient_form");
-    send = f.elements[2].value
+{#$("#submitbtn").click(function(){#}
+{#    let f = document.getElementById("patient_form");#}
+{#    send = f.elements[2].value#}
+{#    $.ajax({#}
+{#        url:"/connect_patient",#}
+{#        type:"POST",#}
+{#        datatype: "json",#}
+{#        data: {tel : send},#}
+{#        success:function(response){#}
+{#            document.getElementById("info").append('<p>Form submitted successfully, patient added to your list</p>')#}
+{#        },#}
+{#        error: function (XMLHttpRequest, textStatus, errorThrown) {#}
+{#            alert("Request: " + XMLHttpRequest.toString() + "\nStatus: " + textStatus + "\nError: " + errorThrown);#}
+{#        },#}
+{#    })#}
+
+function submit_patient(){
+    let name = document.getElementById("name").value;
+    let tel = document.getElementById("tel").value;
+    let notes = document.getElementById("notes").value;
+    data = name + "__" + tel + "__" + notes;
     $.ajax({
-        url:"/connect_patient",
+        url:"/patient_addition",
         type:"POST",
-        datatype: "json",
-        data: {tel : send},
+        data: data,
+        dataType: "text",
         success:function(response){
-            document.getElementById("info").append('<p>Form submitted successfully, patient added to your list</p>')
+            document.getElementById("info").append('Form submitted successfully, patient added to your list')
         },
         error: function (XMLHttpRequest, textStatus, errorThrown) {
             alert("Request: " + XMLHttpRequest.toString() + "\nStatus: " + textStatus + "\nError: " + errorThrown);
         },
     })
-});
+}
 </script>
 </body>
 </html>
