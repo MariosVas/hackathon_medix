@@ -9,17 +9,17 @@ auth_token = os.getenv('TWILIO_AUTH_TOKEN')
 client = Client(account_sid, auth_token)
 
 
-def send_sms_reminder(name, medication, tel):
+def send_sms_reminder(patient_name, patient_message, patient_tel):
     """Send a reminder to a phone using Twilio SMS"""
-    med_time = arrow.get(medication['Time'])
+
     body = 'Hi {0}. {1} at {2}.'.format(
-            name,
-            medication['Message'],
-            med_time.format('h:mm a')
+            patient_name,
+            patient_message,
+            patient_tel.format('h:mm a')
         )
 
     client.messages.create(
             body=body,
-            to=tel,
+            to=patient_tel,
             from_='+441625800133',
         )

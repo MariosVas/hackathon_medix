@@ -33,14 +33,14 @@ def scheduler():
     schedule.clear("medication_daily")
     for patient in Patient.objects.all():
         for med in patient.medication:
-            schedule_sms(med["Time"][:2] + ":" + med["Time"][2:], patient.name, med["Medicine"], patient.telephone)
-
-            # {"Medicine": "Panadol", "Time": "1700", "Message": "Take a Panadol (green bottle)"}]}
+            schedule_sms(med["Time"][:2] + ":" + med["Time"][2:], patient.name, med["Message"], patient.telephone)
 
 
-def schedule_sms(med_time, patient_name, patient_med, patient_tel):
+def schedule_sms(med_time, patient_name, patient_message, patient_tel):
     # time format hh:mm
-    schedule.every().day.at(med_time).do(send_sms_reminder(patient_name, patient_med, patient_tel)).tag("medication_daily")
+    schedule.every().day.at(med_time).do(send_sms_reminder, patient_tel=patient_tel,
+                                         patient_name=patient_name, patient_message=patient_message).tag("medication_daily")
+    print("Scheduling done")
     while True:
         schedule.run_pending()
         time.sleep(1)
