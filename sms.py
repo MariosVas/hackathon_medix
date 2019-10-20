@@ -1,8 +1,7 @@
 import os
 from twilio.rest import Client
 import arrow
-import schedule
-from System.models import Patient
+
 # Uses credentials from the TWILIO_ACCOUNT_SID and TWILIO_AUTH_TOKEN environment variables
 account_sid = os.getenv('TWILIO_ACCOUNT_SID')
 auth_token = os.getenv('TWILIO_AUTH_TOKEN')
