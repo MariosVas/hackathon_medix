@@ -29,12 +29,13 @@ document.getElementById("searchBar").addEventListener("keyup", function(event) {
 });
 
 function schedule(){
+    data= "data"
     $.ajax({
         type:"POST",
         url:"/schedule",
-        data:"",
+        data:data,
         dataType: "text",
-        success:function(){
+        success:function(response){
         },
         error: function (XMLHttpRequest, textStatus, errorThrown) {
             alert("Request: " + XMLHttpRequest.toString() + "\nStatus: " + textStatus + "\nError: " + errorThrown);

@@ -179,6 +179,9 @@ def save_patient(request):
     response = {"name":"name"}
     return HttpResponse(json.dumps(response))
 
+
+@csrf_exempt
 def schedule(request):
     scheduler()
-    return "DONE BB's"
+    resp = {"wow":"ww"}
+    return HttpResponse(json.dumps(resp))
